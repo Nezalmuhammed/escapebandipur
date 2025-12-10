@@ -2,6 +2,7 @@ import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
 import { AmenitiesSection } from "@/components/amenities-section"
+import { KidsPlaySection } from "@/components/kids-play-section"
 import { FarmingSection } from "@/components/farming-section"
 import { WildlifeSection } from "@/components/wildlife-section"
 import { TempleSection } from "@/components/temple-section"
@@ -18,6 +19,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <AmenitiesSection />
+      <KidsPlaySection />
       <FarmingSection />
       <WildlifeSection />
       <TempleSection />

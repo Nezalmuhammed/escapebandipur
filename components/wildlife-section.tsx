@@ -1,8 +1,9 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import Image from "next/image"
 import { Compass, Camera, Bird, TreePine, Sun } from "lucide-react"
+import { useAutoScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const safariExperiences = [
   {
@@ -35,41 +36,22 @@ const safariExperiences = [
 const wildlifeImages = [
   {
     src: "/images/img-9903.jpeg",
-    alt: "Bengal Tiger in Bandipur",
-    label: "Bengal Tiger",
+    alt: "Tiger",
   },
   {
     src: "/images/img-9905.jpeg",
-    alt: "Asian Elephants",
-    label: "Asian Elephants",
+    alt: "Elephants",
   },
   {
     src: "/images/img-9922.jpeg",
-    alt: "Spotted Deer",
-    label: "Spotted Deer",
+    alt: "Deer",
   },
 ]
 
 export function WildlifeSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-visible")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
+  useAutoScrollAnimation(sectionRef)
 
   return (
     <section id="wildlife" ref={sectionRef} className="py-16 md:py-24 lg:py-32 bg-[#2d4a2d] relative overflow-hidden">
@@ -78,7 +60,7 @@ export function WildlifeSection() {
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center mb-10 md:mb-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+        <div className="text-center mb-10 md:mb-16 scroll-fade-in">
           <span className="text-[#8b9d6a] text-xs md:text-sm tracking-[0.3em] uppercase font-medium">
             Bandipur Tiger Reserve
           </span>
@@ -89,36 +71,28 @@ export function WildlifeSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-4 md:gap-6 mb-10 md:mb-16">
+        <div className="grid sm:grid-cols-3 gap-4 md:gap-6 mb-10 md:mb-16 scroll-fade-in delay-1">
           {wildlifeImages.map((image, index) => (
-            <div
-              key={image.label}
-              className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-500 relative aspect-[4/5] rounded-lg overflow-hidden group"
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
+            <div key={index} className="relative aspect-[4/5] rounded-lg overflow-hidden group">
               <Image
                 src={image.src || "/placeholder.svg"}
                 alt={image.alt}
                 fill
-                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6">
-                <span className="text-white text-lg md:text-xl font-medium">{image.label}</span>
-              </div>
             </div>
           ))}
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {safariExperiences.map((experience, index) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 scroll-fade-in delay-2">
+          {safariExperiences.map((experience) => (
             <div
               key={experience.title}
-              className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-500 bg-white/10 backdrop-blur-sm border border-white/20 p-5 md:p-6 lg:p-8 rounded-lg hover:bg-white/20 group"
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="bg-white/10 backdrop-blur-sm border border-white/20 p-5 md:p-6 lg:p-8 rounded-lg hover:bg-white/20 transition-colors duration-200 group"
             >
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-white/10 rounded-full flex items-center justify-center mb-4 md:mb-5 group-hover:bg-[#8b9d6a] transition-colors duration-300">
-                <experience.icon className="w-5 h-5 md:w-6 md:h-6 text-[#8b9d6a] group-hover:text-white transition-colors duration-300" />
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-white/10 rounded-full flex items-center justify-center mb-4 md:mb-5 group-hover:bg-[#8b9d6a] transition-colors duration-200">
+                <experience.icon className="w-5 h-5 md:w-6 md:h-6 text-[#8b9d6a] group-hover:text-white transition-colors duration-200" />
               </div>
               <h3 className="text-lg md:text-xl font-medium text-white mb-2">{experience.title}</h3>
               <p className="text-white/70 text-sm md:text-base">{experience.description}</p>
