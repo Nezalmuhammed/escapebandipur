@@ -156,12 +156,6 @@ export function GallerySection() {
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-end p-2 md:p-4">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-white text-xs md:text-sm font-medium block line-clamp-1">{image.alt}</span>
-                    <span className="text-white/70 text-xs hidden md:block">{image.category}</span>
-                  </div>
-                </div>
               </div>
             </div>
           ))}
