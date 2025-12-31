@@ -22,8 +22,8 @@ const activities = [
   },
   {
     icon: Compass,
-    title: "Guided Trekking",
-    description: "Complimentary trekking experience with tea and snacks included.",
+    title: "Private Trekking",
+    description: "Experience exclusive sunrise and sunset treks with a private guide. Walk quiet forest paths, soak in golden-hour views, and enjoy a peaceful connection with nature away from crowds.",
   },
   {
     icon: Sun,
