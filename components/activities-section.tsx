@@ -21,11 +21,6 @@ const activities = [
     description: "Guided walks through green landscapes rich with native flora.",
   },
   {
-    icon: Compass,
-    title: "Private Trekking",
-    description: "Experience exclusive sunrise and sunset treks with a private guide. Walk quiet forest paths, soak in golden-hour views, and enjoy a peaceful connection with nature away from crowds.",
-  },
-  {
     icon: Sun,
     title: "Sunrise & Sunset Trek",
     description: "Guided early-morning and evening treks to witness breathtaking sunrise and sunset views.",
