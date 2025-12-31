@@ -26,6 +26,11 @@ const activities = [
     description: "Complimentary trekking experience with tea and snacks included.",
   },
   {
+    icon: Sun,
+    title: "Sunrise & Sunset Trek",
+    description: "Guided early-morning and evening treks to witness breathtaking sunrise and sunset views.",
+  },
+  {
     icon: Apple,
     title: "Organic Picking",
     description: "Collect vegetables or herbs from the garden for your own meal.",
@@ -44,11 +49,6 @@ const activities = [
     icon: Camera,
     title: "Wildlife Photography",
     description: "Capture the raw soul of the jungle with expert guidance.",
-  },
-  {
-    icon: Sun,
-    title: "Sunrise Over the Fields",
-    description: "Watch dawn light up the farmland as the forest wakes.",
   },
 ]
 
