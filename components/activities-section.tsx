@@ -21,6 +21,11 @@ const activities = [
     description: "Guided walks through green landscapes rich with native flora.",
   },
   {
+    icon: Compass,
+    title: "Guided Trekking",
+    description: "Complimentary trekking experience with tea and snacks included.",
+  },
+  {
     icon: Apple,
     title: "Organic Picking",
     description: "Collect vegetables or herbs from the garden for your own meal.",
@@ -56,7 +61,9 @@ export function ActivitiesSection() {
     <section id="activities" ref={sectionRef} className="py-16 md:py-24 lg:py-32 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-10 md:mb-16 scroll-fade-in">
-          <span className="text-[#8b9d6a] text-xs md:text-sm tracking-[0.3em] uppercase font-medium">Discover</span>
+          <span className="text-[#8b9d6a] text-xs md:text-sm tracking-[0.3em] uppercase font-medium">
+            Discover
+          </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-[#2d4a2d] mt-3 mb-4">
             Activities & Experiences
           </h2>
@@ -75,8 +82,12 @@ export function ActivitiesSection() {
               <div className="w-10 h-10 md:w-12 md:h-12 bg-[#2d4a2d]/10 rounded-full flex items-center justify-center mb-3 md:mb-4 group-hover:bg-[#2d4a2d] transition-colors duration-200">
                 <activity.icon className="w-4 h-4 md:w-5 md:h-5 text-[#2d4a2d] group-hover:text-white transition-colors duration-200" />
               </div>
-              <h3 className="text-base md:text-lg font-medium text-[#2d4a2d] mb-2">{activity.title}</h3>
-              <p className="text-[#5a5a5a] text-xs md:text-sm">{activity.description}</p>
+              <h3 className="text-base md:text-lg font-medium text-[#2d4a2d] mb-2">
+                {activity.title}
+              </h3>
+              <p className="text-[#5a5a5a] text-xs md:text-sm">
+                {activity.description}
+              </p>
             </div>
           ))}
         </div>
